@@ -2,7 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Hero from "../hero/Hero";
 import Home from "../home/Home";
 import Movies from "../movies/Movies";
-import { Dimensions } from "react-native";
+import VideoPlayerOne from "../video/VideoPlayerOne";
 
 const Stack = createStackNavigator();
 const DcStackNavigator = () => {
@@ -21,6 +21,11 @@ const DcStackNavigator = () => {
       <Stack.Screen
         name="Movies"
         component={Movies}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+      <Stack.Screen
+        name="VideoPlayerOne"
+        component={VideoPlayerOne}
         options={{ headerShown: false }}
       ></Stack.Screen>
     </Stack.Navigator>

@@ -1,6 +1,6 @@
 import { ResizeMode, Video } from "expo-av";
 import { useRef, useState } from "react";
-import { Button, Dimensions, View } from "react-native";
+import { Dimensions, View } from "react-native";
 import { StyleSheet } from "react-native";
 import * as ScreenOrientation from "expo-screen-orientation";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -12,7 +12,9 @@ import { FontAwesome6 } from "@expo/vector-icons";
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
-const VideoPlayerOne = ({ url }) => {
+const VideoPlayerOne = ({ route }) => {
+  console.log(route.params.url);
+  let url = route.params.url;
   const [orientation, setOrientation] = useState(1);
 
   const [buttonStyle, setButtonStyles] = useState({
@@ -49,6 +51,7 @@ const VideoPlayerOne = ({ url }) => {
       style={[styles.container, { marginTop: orientation == 1 ? 200 : 10 }]}
     >
       <Video
+        shouldPlay={true}
         onTouchStart={() => {
           setButtonStyles((preValue) => {
             let newVal = {};
@@ -87,7 +90,7 @@ const VideoPlayerOne = ({ url }) => {
           }, 2000);
         }}
         ref={video}
-        videoStyle={{ borderColor: "red" }}
+        videoStyle={{ backgroundColor: "#000" }}
         style={[
           styles.video,
           {
