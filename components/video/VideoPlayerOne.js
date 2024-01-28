@@ -3,17 +3,30 @@ import { useRef, useState } from "react";
 import { Button, Dimensions, View } from "react-native";
 import { StyleSheet } from "react-native";
 import * as ScreenOrientation from "expo-screen-orientation";
+import { MaterialIcons } from "@expo/vector-icons";
+import UiPlayerIcon from "../ui/UiPlayerIcon";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
 
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
 const VideoPlayerOne = ({ url }) => {
   const [orientation, setOrientation] = useState(1);
+
   const [buttonStyle, setButtonStyles] = useState({
     display: "none",
   });
+
+  const video = useRef();
+  const timer = useRef();
+
+  const [status, setStatus] = useState({});
+
   async function changeScreenOrientation() {
     const data = await ScreenOrientation.getOrientationAsync();
+
     if (data == 4) {
       await ScreenOrientation.lockAsync(
         ScreenOrientation.OrientationLock.DEFAULT
@@ -30,8 +43,6 @@ const VideoPlayerOne = ({ url }) => {
       });
     }
   }
-  const video = useRef();
-  const [status, setStatus] = useState({});
 
   return (
     <View
@@ -45,19 +56,21 @@ const VideoPlayerOne = ({ url }) => {
               newVal = {
                 zIndex: 3,
                 marginTop: -326,
-                marginLeft: 475,
+                marginLeft: 20,
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center",
+                gap: 25,
               };
             } else {
               newVal = {
                 zIndex: 3,
                 marginTop: -199,
-                marginLeft: 120,
+                marginLeft: 10,
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center",
+                gap: 25,
               };
             }
             return newVal;
@@ -71,7 +84,7 @@ const VideoPlayerOne = ({ url }) => {
               };
               return newVal;
             });
-          }, 1000);
+          }, 2000);
         }}
         ref={video}
         videoStyle={{ borderColor: "red" }}
@@ -92,16 +105,38 @@ const VideoPlayerOne = ({ url }) => {
         progressUpdateIntervalMillis={500}
       />
       <View style={buttonStyle}>
-        <Button
-          title={status.isPlaying ? "Pause" : "Play"}
+        <UiPlayerIcon
+          style={{ padding: 20 }}
           onPress={() =>
             status.isPlaying
               ? video.current.pauseAsync()
               : video.current.playAsync()
           }
-        />
-        <Button title="Orientation" onPress={changeScreenOrientation} />
-        <Button title="Replay" onPress={() => video.current.replayAsync()} />
+        >
+          {status.isPlaying ? (
+            <Ionicons name="play" size={28} color="green" />
+          ) : (
+            <FontAwesome6 name="pause" size={28} color="green" />
+          )}
+        </UiPlayerIcon>
+        <UiPlayerIcon onPress={changeScreenOrientation}>
+          {orientation == 1 ? (
+            <MaterialCommunityIcons
+              name="phone-rotate-landscape"
+              size={28}
+              color="green"
+            />
+          ) : (
+            <MaterialCommunityIcons
+              name="phone-rotate-portrait"
+              size={28}
+              color="green"
+            />
+          )}
+        </UiPlayerIcon>
+        <UiPlayerIcon onPress={() => video.current.replayAsync()}>
+          <MaterialIcons name="replay" size={28} color="green" />
+        </UiPlayerIcon>
       </View>
     </View>
   );
