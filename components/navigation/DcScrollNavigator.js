@@ -1,6 +1,6 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-const DcScrollNavigator = ({ scrollData, onNavigate }) => {
+const DcScrollNavigator = ({ scrollData }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>

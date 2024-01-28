@@ -2,6 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Hero from "../hero/Hero";
 import Home from "../home/Home";
 import Movies from "../movies/Movies";
+import { Dimensions } from "react-native";
 
 const Stack = createStackNavigator();
 const DcStackNavigator = () => {

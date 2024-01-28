@@ -6,10 +6,7 @@ const UiButton = ({ title, onPress }) => {
   };
   return (
     <View>
-      <Pressable
-        // android_ripple={{ color: "red", borderless: true }}
-        onPress={onPressHandler}
-      >
+      <Pressable onPress={onPressHandler}>
         <Text style={styles.buttonText}>{title}</Text>
       </Pressable>
     </View>
