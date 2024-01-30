@@ -16,27 +16,27 @@ const VIDEO_URLS = [
   },
   {
     name: "Gelupu Thalupule Song Posting 💉❤️",
-    url: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+    url: "https://dear-comrade-media.s3.ap-south-1.amazonaws.com/Gelupu+Thalupule.mp4",
     cover: require("../../assets/Theenmaar_Gelupu Talupule.jpg"),
   },
   {
     name: "Palletoori (Unplugged)",
-    url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    url: "https://dear-comrade-media.s3.ap-south-1.amazonaws.com/Double+Engine+-+Palletoori.mp4",
     cover: require("../../assets/double-engine.jpeg"),
   },
   {
     name: "Moon Knight",
-    url: "https://dear-comrade-web-media.s3.ap-south-1.amazonaws.com/A+Man+Without+Love+LYRICS+Video+Engelbert+Humperdinck+1968+%F0%9F%8C%99+Moon+Knight+Episode+1.mp4",
+    url: "https://dear-comrade-media.s3.ap-south-1.amazonaws.com/moon-Knight.mp4",
     cover: require("../../assets/moon-knight.jpg"),
   },
   {
     name: "Hello Neredu Kalla Dana",
-    url: "https://dear-comrade-web-media.s3.ap-south-1.amazonaws.com/Telugu+Super+Hit+Song+-+Hello+Neredu+Kalla.mp4",
+    url: "https://dear-comrade-media.s3.ap-south-1.amazonaws.com/Hello+Neredu+Kalla.mp4",
     cover: require("../../assets/Seenu.jpg"),
   },
   {
     name: "Gopala Gopala",
-    url: "https://dear-comrade-web-media.s3.ap-south-1.amazonaws.com/Telugu+Super+Hit+Song+-+Hello+Neredu+Kalla.mp4",
+    url: "https://dear-comrade-media.s3.ap-south-1.amazonaws.com/Bhaje+Bhaaje.mp4",
     cover: require("../../assets/gopal-gopala.jpeg"),
   },
 ];
@@ -47,6 +47,7 @@ const Movies = () => {
       <ScrollView>
         {VIDEO_URLS.map((item) => (
           <Pressable
+            key={item.name}
             onPress={() =>
               navigation.navigate("VideoPlayerOne", { url: item.url })
             }

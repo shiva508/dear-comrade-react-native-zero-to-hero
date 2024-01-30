@@ -12,6 +12,28 @@ import { FontAwesome6 } from "@expo/vector-icons";
 const screenHeight = Dimensions.get("window").height;
 const screenWidth = Dimensions.get("window").width;
 
+const DEFAULT_ORI_STYLE = {
+  zIndex: 3,
+  marginTop: -326,
+  marginLeft: 20,
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 25,
+};
+
+const LANDSCAPE_STYLE = {
+  zIndex: 3,
+  marginTop: -199,
+  marginLeft: 10,
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 25,
+};
+const PANNEL_CLEAR_STYLE = {
+  display: "none",
+};
 const VideoPlayerOne = ({ route }) => {
   console.log(route.params.url);
   let url = route.params.url;
@@ -56,25 +78,9 @@ const VideoPlayerOne = ({ route }) => {
           setButtonStyles((preValue) => {
             let newVal = {};
             if (orientation !== 1) {
-              newVal = {
-                zIndex: 3,
-                marginTop: -326,
-                marginLeft: 20,
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: 25,
-              };
+              newVal = DEFAULT_ORI_STYLE;
             } else {
-              newVal = {
-                zIndex: 3,
-                marginTop: -199,
-                marginLeft: 10,
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: 25,
-              };
+              newVal = LANDSCAPE_STYLE;
             }
             return newVal;
           });
@@ -82,15 +88,13 @@ const VideoPlayerOne = ({ route }) => {
         onTouchEnd={() => {
           setTimeout(() => {
             setButtonStyles((preValue) => {
-              const newVal = {
-                display: "none",
-              };
+              const newVal = PANNEL_CLEAR_STYLE;
               return newVal;
             });
           }, 2000);
         }}
         ref={video}
-        videoStyle={{ backgroundColor: "#000" }}
+        videoStyle={styles.videoPlayer}
         style={[
           styles.video,
           {
@@ -106,6 +110,9 @@ const VideoPlayerOne = ({ route }) => {
         isLooping={false}
         onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         progressUpdateIntervalMillis={500}
+        onError={(error) => {
+          console.log("Error");
+        }}
       />
       <View style={buttonStyle}>
         <UiPlayerIcon
@@ -166,5 +173,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  videoPlayer: { backgroundColor: "#000" },
 });
 export default VideoPlayerOne;

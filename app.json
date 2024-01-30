@@ -26,13 +26,6 @@
     },
     "plugins": [
       [
-        "expo-notifications",
-        {
-          "icon": "./assets/icon.png",
-          "color": "#ffffff"
-        }
-      ],
-      [
         "expo-screen-orientation",
         {
           "initialOrientation": "DEFAULT"

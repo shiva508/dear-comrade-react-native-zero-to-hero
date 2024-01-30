@@ -3,6 +3,8 @@ import Hero from "../hero/Hero";
 import Home from "../home/Home";
 import Movies from "../movies/Movies";
 import VideoPlayerOne from "../video/VideoPlayerOne";
+import News from "../news/News";
+import NewsInfo from "../news/NewsInfo";
 
 const Stack = createStackNavigator();
 const DcStackNavigator = () => {
@@ -26,6 +28,16 @@ const DcStackNavigator = () => {
       <Stack.Screen
         name="VideoPlayerOne"
         component={VideoPlayerOne}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+      <Stack.Screen
+        name="News"
+        component={News}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+      <Stack.Screen
+        name="NewsInfo"
+        component={NewsInfo}
         options={{ headerShown: false }}
       ></Stack.Screen>
     </Stack.Navigator>
