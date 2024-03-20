@@ -55,6 +55,10 @@ const Movies = () => {
             <View style={styles.videoContainer}>
               <Text style={styles.text}>{item.name}</Text>
               <Image style={styles.image} source={item.cover}></Image>
+              <Text>
+                Cast :Shiva, Satish,Ravi,Kavya,Mounika,Rajeswari,Gopi swami{" "}
+              </Text>
+              <Text>Duration : </Text>
             </View>
           </Pressable>
         ))}

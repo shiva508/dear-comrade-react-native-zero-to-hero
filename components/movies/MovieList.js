@@ -3,7 +3,7 @@ import { View } from "react-native";
 const MovieList = () => {
   return (
     <View>
-      <Text>Mivies </Text>
+      <Text>Movies </Text>
     </View>
   );
 };
