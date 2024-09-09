@@ -23,7 +23,7 @@ const DcStackNavigator = () => {
       <Stack.Screen
         name="Movies"
         component={Movies}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
       ></Stack.Screen>
       <Stack.Screen
         name="VideoPlayerOne"
