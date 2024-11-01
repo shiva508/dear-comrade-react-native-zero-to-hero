@@ -29,7 +29,9 @@ const DcScrollNavigator = ({ scrollData }) => {
           </Pressable>
         ))}
       </ScrollView>
-      <Text style={styles.text}>HI</Text>
+      <View>
+        <Text style={styles.text}>HI</Text>
+      </View>
     </View>
   );
 };
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: "#fff",
-    padding: 40,
+    padding: 60,
     margin: 4,
     fontWeight: "bold",
     borderColor: "#fff",
