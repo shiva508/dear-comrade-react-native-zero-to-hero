@@ -35,7 +35,7 @@ const PANNEL_CLEAR_STYLE = {
   display: "none",
 };
 const VideoPlayerOne = ({ route }) => {
-  console.log(route.params.url);
+  //console.log(route.params.url);
   let url = route.params.url;
   const [orientation, setOrientation] = useState(1);
 
@@ -111,7 +111,7 @@ const VideoPlayerOne = ({ route }) => {
         onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         progressUpdateIntervalMillis={500}
         onError={(error) => {
-          console.log("Error");
+          //console.log("Error");
         }}
       />
       <View style={buttonStyle}>
