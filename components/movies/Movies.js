@@ -49,7 +49,7 @@ const Movies = () => {
           <Pressable
             key={item.name}
             onPress={() =>
-              navigation.navigate("VideoPlayerOne", { url: item.url })
+              navigation.navigate("VideoPlayerFour", { url: item.url })
             }
           >
             <View style={styles.videoContainer}>

@@ -5,6 +5,8 @@ import Movies from "../movies/Movies";
 import VideoPlayerOne from "../video/VideoPlayerOne";
 import News from "../news/News";
 import NewsInfo from "../news/NewsInfo";
+import VideoPlayerThree from "../video/VideoPlayerThree";
+import VideoPlayerFour from "../video/VideoPlayerFour";
 
 const Stack = createStackNavigator();
 const DcStackNavigator = () => {
@@ -26,8 +28,13 @@ const DcStackNavigator = () => {
         options={{ headerShown: true }}
       ></Stack.Screen>
       <Stack.Screen
-        name="VideoPlayerOne"
-        component={VideoPlayerOne}
+        name="VideoPlayerFour"
+        component={VideoPlayerFour}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+      <Stack.Screen
+        name="VideoPlayerThree"
+        component={VideoPlayerThree}
         options={{ headerShown: false }}
       ></Stack.Screen>
       <Stack.Screen
