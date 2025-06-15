@@ -38,6 +38,11 @@ const DcStackNavigator = () => {
         options={{ headerShown: false }}
       ></Stack.Screen>
       <Stack.Screen
+        name="VideoPlayerOne"
+        component={VideoPlayerOne}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+      <Stack.Screen
         name="News"
         component={News}
         options={{ headerShown: true }}

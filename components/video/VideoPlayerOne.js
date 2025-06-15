@@ -1,6 +1,6 @@
 import { ResizeMode, Video } from "expo-av";
-import { useRef, useState } from "react";
-import { Dimensions, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { Dimensions, Text, View } from "react-native";
 import { StyleSheet } from "react-native";
 import * as ScreenOrientation from "expo-screen-orientation";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -39,6 +39,7 @@ const VideoPlayerOne = ({ route }) => {
   let url = route.params.url;
   const [orientation, setOrientation] = useState(1);
 
+  const [errorMsg, setErrorMsg] = useState("");
   const [buttonStyle, setButtonStyles] = useState({
     display: "none",
   });
@@ -47,7 +48,9 @@ const VideoPlayerOne = ({ route }) => {
   const timer = useRef();
 
   const [status, setStatus] = useState({});
-
+  useEffect(() => {
+    //changeScreenOrientation();
+  }, []);
   async function changeScreenOrientation() {
     const data = await ScreenOrientation.getOrientationAsync();
 
@@ -72,6 +75,7 @@ const VideoPlayerOne = ({ route }) => {
     <View
       style={[styles.container, { marginTop: orientation == 1 ? 200 : 10 }]}
     >
+      <Text>{errorMsg}</Text>
       <Video
         shouldPlay={true}
         onTouchStart={() => {
@@ -111,7 +115,9 @@ const VideoPlayerOne = ({ route }) => {
         onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         progressUpdateIntervalMillis={500}
         onError={(error) => {
-          //console.log("Error");
+          console.log("Error");
+          console.log(error);
+          setErrorMsg("Error in video loading" + error);
         }}
       />
       <View style={buttonStyle}>

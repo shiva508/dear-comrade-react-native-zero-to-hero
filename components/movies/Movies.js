@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 const VIDEO_URLS = [
   {
     name: "Big Buck Bunny",
-    url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    url: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny1.mp4",
     cover: require("../../assets/bbb-splash.png"),
   },
   {
@@ -49,7 +49,7 @@ const Movies = () => {
           <Pressable
             key={item.name}
             onPress={() =>
-              navigation.navigate("VideoPlayerFour", { url: item.url })
+              navigation.navigate("VideoPlayerOne", { url: item.url })
             }
           >
             <View style={styles.videoContainer}>
